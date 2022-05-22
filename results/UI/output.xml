@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.2 on win32)" generated="20220523 03:10:57.948" rpa="false" schemaversion="3">
+<suite id="s1" name="Sauce Demo" source="C:\Users\Kaila\OneDrive\Desktop\TruTrace UseCase\Test_Suites\Sauce_Demo.robot">
+<kw name="Open Browser" library="SeleniumLibrary" type="SETUP">
+<arg>${UI_URL}</arg>
+<arg>browser=chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220523 03:10:58.258" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<status status="PASS" starttime="20220523 03:10:58.258" endtime="20220523 03:11:02.984"/>
+</kw>
+<test id="s1-t1" name="Sauce Demo - Place a order and checkout" line="14">
+<kw name="Login Into Website" library="LoginPage_Actions">
+<arg>${UI_CREDS['username']}</arg>
+<arg>${UI_CREDS['password']}</arg>
+<doc>Performs login action with given user name and password</doc>
+<kw name="Enter Text Into UserName Field" library="LoginPage">
+<arg>${user}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xPath://div[@class="login-box"]//input[@name="user-name"]</arg>
+<arg>${input_text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220523 03:11:02.996" level="INFO">Typing text 'standard_user' into text field 'xPath://div[@class="login-box"]//input[@name="user-name"]'.</msg>
+<status status="PASS" starttime="20220523 03:11:02.995" endtime="20220523 03:11:03.132"/>
+</kw>
+<status status="PASS" starttime="20220523 03:11:02.993" endtime="20220523 03:11:03.132"/>
+</kw>
+<kw name="Enter Text Into Password Field" library="LoginPage">
+<arg>${pass}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xPath://div[@class="login-box"]//input[@name="password"]</arg>
+<arg>${input_text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220523 03:11:03.133" level="INFO">Typing text 'secret_sauce' into text field 'xPath://div[@class="login-box"]//input[@name="password"]'.</msg>
+<status status="PASS" starttime="20220523 03:11:03.133" endtime="20220523 03:11:03.242"/>
+</kw>
+<status status="PASS" starttime="20220523 03:11:03.132" endtime="20220523 03:11:03.242"/>
+</kw>
+<kw name="Click Login" library="LoginPage">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xPath://div[@class="login-box"]//input[@name="login-button"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220523 03:11:03.243" level="INFO">Clicking button 'xPath://div[@class="login-box"]//input[@name="login-button"]'.</msg>
+<status status="PASS" starttime="20220523 03:11:03.242" endtime="20220523 03:11:03.364"/>
+</kw>
+<status status="PASS" starttime="20220523 03:11:03.242" endtime="20220523 03:11:03.365"/>
+</kw>
+<status status="PASS" starttime="20220523 03:11:02.988" endtime="20220523 03:11:03.365"/>
+</kw>
+<kw name="Add Product To Cart And Open Cart" library="InventoryPage_Actions">
+<doc>Adds product to cart and opens shopping cart</doc>
+<kw name="Click Add To Cart" library="InventoryPage">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xPath://div[@class='inventory_list']//button[@name='add-to-cart-sauce-labs-backpack']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220523 03:11:03.368" level="INFO">Clicking element 'xPath://div[@class='inventory_list']//button[@name='add-to-cart-sauce-labs-backpack']'.</msg>
+<status status="PASS" starttime="20220523 03:11:03.368" endtime="20220523 03:11:03.435"/>
+</kw>
+<status status="PASS" starttime="20220523 03:11:03.367" endtime="20220523 03:11:03.435"/>
+</kw>
+<kw name="Click Shopping Cart" library="InventoryPage">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xPath://a[@class="shopping_cart_link"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220523 03:11:03.436" level="INFO">Clicking element 'xPath://a[@class="shopping_cart_link"]'.</msg>
+<status status="PASS" starttime="20220523 03:11:03.436" endtime="20220523 03:11:03.499"/>
+</kw>
+<status status="PASS" starttime="20220523 03:11:03.435" endtime="20220523 03:11:03.500"/>
+</kw>
+<status status="PASS" starttime="20220523 03:11:03.366" endtime="20220523 03:11:03.500"/>
+</kw>
+<kw name="Checkout Selected Product" library="CartPage_Actions">
+<arg>${UI_PRODUCT_DETAILS['firstName']}</arg>
+<arg>${UI_PRODUCT_DETAILS['lastName']}</arg>
+<arg>${UI_PRODUCT_DETAILS['postalCode']}</arg>
+<doc>Fills required details and checks out the product</doc>
+<kw name="Click Checkout" library="CartPage">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xPath://div[@class="cart_footer"]//button[@name="checkout"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220523 03:11:03.507" level="INFO">Clicking button 'xPath://div[@class="cart_footer"]//button[@name="checkout"]'.</msg>
+<status status="PASS" starttime="20220523 03:11:03.507" endtime="20220523 03:11:03.581"/>
+</kw>
+<status status="PASS" starttime="20220523 03:11:03.506" endtime="20220523 03:11:03.581"/>
+</kw>
+<kw name="Enter Text Into FirstName Field" library="CartPage">
+<arg>${first}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xPath://div[@class="form_group"]//input[@name="firstName"]</arg>
+<arg>${input_text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220523 03:11:03.582" level="INFO">Typing text 'Kailash' into text field 'xPath://div[@class="form_group"]//input[@name="firstName"]'.</msg>
+<status status="PASS" starttime="20220523 03:11:03.582" endtime="20220523 03:11:03.701"/>
+</kw>
+<status status="PASS" starttime="20220523 03:11:03.581" endtime="20220523 03:11:03.701"/>
+</kw>
+<kw name="Enter Text Into LastName Field" library="CartPage">
+<arg>${last}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xPath://div[@class="form_group"]//input[@name="lastName"]</arg>
+<arg>${input_text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220523 03:11:03.702" level="INFO">Typing text 'Prabhu' into text field 'xPath://div[@class="form_group"]//input[@name="lastName"]'.</msg>
+<status status="PASS" starttime="20220523 03:11:03.702" endtime="20220523 03:11:03.817"/>
+</kw>
+<status status="PASS" starttime="20220523 03:11:03.701" endtime="20220523 03:11:03.817"/>
+</kw>
+<kw name="Enter Number Into ZipCode Field" library="CartPage">
+<arg>${zip}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xPath://div[@class="form_group"]//input[@name="postalCode"]</arg>
+<arg>${input_text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220523 03:11:03.818" level="INFO">Typing text '625020' into text field 'xPath://div[@class="form_group"]//input[@name="postalCode"]'.</msg>
+<status status="PASS" starttime="20220523 03:11:03.818" endtime="20220523 03:11:03.938"/>
+</kw>
+<status status="PASS" starttime="20220523 03:11:03.817" endtime="20220523 03:11:03.939"/>
+</kw>
+<kw name="Click Continue" library="CartPage">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xPath://div[@class="checkout_buttons"]//input[@name="continue"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220523 03:11:03.939" level="INFO">Clicking button 'xPath://div[@class="checkout_buttons"]//input[@name="continue"]'.</msg>
+<status status="PASS" starttime="20220523 03:11:03.939" endtime="20220523 03:11:04.026"/>
+</kw>
+<status status="PASS" starttime="20220523 03:11:03.939" endtime="20220523 03:11:04.026"/>
+</kw>
+<kw name="Click Finish" library="CartPage">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xPath://div[@class="cart_footer"]//button[@name="finish"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220523 03:11:04.029" level="INFO">Clicking button 'xPath://div[@class="cart_footer"]//button[@name="finish"]'.</msg>
+<status status="PASS" starttime="20220523 03:11:04.029" endtime="20220523 03:11:04.102"/>
+</kw>
+<status status="PASS" starttime="20220523 03:11:04.027" endtime="20220523 03:11:04.103"/>
+</kw>
+<status status="PASS" starttime="20220523 03:11:03.501" endtime="20220523 03:11:04.103"/>
+</kw>
+<kw name="Validate Order Placed" library="CartPage_Actions">
+<kw name="Thank You Message" library="CartPage">
+<var>${message}</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${header_text}</var>
+<arg>xPath://h2[@class="complete-header"]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220523 03:11:04.136" level="INFO">${header_text} = THANK YOU FOR YOUR ORDER</msg>
+<status status="PASS" starttime="20220523 03:11:04.105" endtime="20220523 03:11:04.136"/>
+</kw>
+<msg timestamp="20220523 03:11:04.136" level="INFO">${message} = THANK YOU FOR YOUR ORDER</msg>
+<status status="PASS" starttime="20220523 03:11:04.105" endtime="20220523 03:11:04.136"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${message}</arg>
+<arg>${thank_you}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220523 03:11:04.136" endtime="20220523 03:11:04.137"/>
+</kw>
+<status status="PASS" starttime="20220523 03:11:04.104" endtime="20220523 03:11:04.137"/>
+</kw>
+<doc>This test case places the order and checks out the order</doc>
+<tag>Critical</tag>
+<tag>SauceDemo</tag>
+<tag>Smoke</tag>
+<status status="PASS" starttime="20220523 03:11:02.986" endtime="20220523 03:11:04.138"/>
+</test>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220523 03:11:04.140" endtime="20220523 03:11:06.313"/>
+</kw>
+<doc>This Test Suite contains all the test cases being executed on Sauce Demo Site</doc>
+<status status="PASS" starttime="20220523 03:10:57.948" endtime="20220523 03:11:06.313"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">Critical</stat>
+<stat pass="1" fail="0" skip="0">SauceDemo</stat>
+<stat pass="1" fail="0" skip="0">Smoke</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Sauce Demo">Sauce Demo</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
